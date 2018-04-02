@@ -44,10 +44,15 @@
 	<script type="text/javascript">
 		function confirme(){
 			var r = confirm("vous voulez ajouter une nouvelle activité : Cinéma ")
+			var url = "options.html?cinema="
 			if (r == true) {
-				window.location.href="options.html";
+				var cinema = "true"
+				url = url + cinema
+				window.location.href=url;
 			} else {
-
+				var cinema = "false"
+				url = url + cinema
+				window.location.href=url;
 			}
 		}
 	</script>
