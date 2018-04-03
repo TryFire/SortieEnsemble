@@ -43,8 +43,8 @@
 
 	<script type="text/javascript">
 		function confirme(){
-			var r = confirm("vous voulez ajouter une nouvelle activité : Cinéma ")
-			var url = "options.html?cinema="
+            const r = confirm("vous voulez ajouter une nouvelle activité : Cinéma ");
+            var url = "html/options.html?cinema="
 			if (r == true) {
 				var cinema = "true"
 				url = url + cinema
@@ -58,7 +58,7 @@
 	</script>
 
 	<h1 class="head">BIENVENUE !</h1>
-	<img class="img" src="../img/logo.png">
+	<img class="img" src="img/logo.png">
 	<div style="text-align: center;margin-top: -100px;">
 		<button class="btn" onclick="confirme()">START</button>
 		<p>clique sur "START" pour organiser ta soirée</p>
