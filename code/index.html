@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+	<meta charset="ISO-8859-1">
 	<title>sortir ensemble</title>
 	<style type="text/css">
 		.head{
@@ -40,28 +41,16 @@
 	</style>
 </head>
 <body>
-
-	<script type="text/javascript">
-		function confirme(){
-            const r = confirm("vous voulez ajouter une nouvelle activité : Cinéma ");
-            var url = "html/options.html?cinema="
-			if (r == true) {
-				var cinema = "true"
-				url = url + cinema
-				window.location.href=url;
-			} else {
-				var cinema = "false"
-				url = url + cinema
-				window.location.href=url;
-			}
-		}
-	</script>
-
 	<h1 class="head">BIENVENUE !</h1>
 	<img class="img" src="img/logo.png">
 	<div style="text-align: center;margin-top: -100px;">
-		<button class="btn" onclick="confirme()">START</button>
-		<p>clique sur "START" pour organiser ta soirée</p>
+		<form method="get" action="html/test.php"> Vous voulez ajouter "cinema" avant le sortie? <br>
+			<input name="cinema" type="radio" value="oui"> oui
+			<input name="cinema" type="radio" value="non" checked> non
+			<br>
+			<input class="btn" name="submit" type="submit" value="Start" style="margin-top: 20px">
+		</form>
+		<p>clique sur "START" pour organiser ta soir�e</p>
 	</div>
 	
 	
