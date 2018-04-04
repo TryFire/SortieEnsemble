@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>sortir ensemble</title>
+
+<!--必要样式-->
+<link rel="stylesheet" href="../css/jquery-labelauty.css" />
+<link rel="stylesheet" href="../css/btn_style.css" />
+<style type="text/css">
+ul{list-style-type: none;}
+li{display: inline-block;}
+li{margin: 10px 0;}
+input.labelauty + label{font:12px "Microsoft Yahei";}
+   .tete{
+			background-color: #ffe082;
+			color:black;
+			font-weight: bold;
+			text-align: center;
+			margin-left: 150px;
+			margin-right: 150px;
+			size: 50px;
+			margin-top: 30px;
+			padding: 30px;
+		}
+		.par{
+			font-family: arial;
+			color: black;
+			font-size: 20px;
+		}
+		.img{
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: -120px;
+			margin-bottom: -90px;
+			display: block;
+			width: 300px;
+			height: 300px;
+			padding: -50px;
+
+</style>
+</head>
+<body bgcolor="#F5FFFA">
+<body>
+<center>
+	<h1 class="tete"> <img class="img" src="../img/logo.png" ></h1>
+	<div style="margin-left: 150px;margin-right: 150px;text-align: left;">
+	<h2 class="par">choisissez votre préférence:</h2>
+		<hr>
+	
+	<ul class="dowebok1">
+	<p class="par">Nombre Participants :</p>
+		<li><input type="radio" name="radio1" data-labelauty="0-5" checked></li>
+		<li><input type="radio" name="radio1" data-labelauty="5-10"></li>
+		<li><input type="radio" name="radio1" data-labelauty="10-15"></li>
+		<li><input type="radio" name="radio1" data-labelauty="15-20"></li>
+		<li><input type="radio" name="radio1" data-labelauty="20-30"></li>
+		<li><input type="radio" name="radio1" data-labelauty="30+"></li>
+	</ul>
+
+	<hr>
+	<ul class="dowebok2">
+	    <p class="par">Distance maximale entre les trois lieux :</p>
+		<li><input type="radio" name="radio2" data-labelauty="500m" checked></li>
+		<li><input type="radio" name="radio2" data-labelauty="1km"></li>
+		<li><input type="radio" name="radio2" data-labelauty="2km"></li>
+		<li><input type="radio" name="radio2" data-labelauty="3km"></li>
+		<li><input type="radio" name="radio2" data-labelauty="5km"></li>
+		<li><input type="radio" name="radio2" data-labelauty="10km"></li>
+	</ul>
+	<hr>
+	<ul class="dowebok3">
+	<p class="par">le type de cuisine pour un restaurant:</p>
+		<li><input type="radio" name="radio3" data-labelauty="italienne" checked></li>
+		<li><input type="radio" name="radio3" data-labelauty="japonaise"></li>
+		<li><input type="radio" name="radio3" data-labelauty="allemande"></li>
+		<li><input type="radio" name="radio3" data-labelauty="française"></li>
+		<li><input type="radio" name="radio3" data-labelauty="chinoise"></li>
+		<li><input type="radio" name="radio3" data-labelauty="indien"></li>
+		<li><input type="radio" name="radio3" data-labelauty="coréenne"></li>
+		<li><input type="radio" name="radio3" data-labelauty="vietnamienne"></li>
+		<li><input type="radio" name="radio3" data-labelauty="espagnole"></li>
+		<li><input type="radio" name="radio3" data-labelauty="fast-food"></li>
+		<li><input type="radio" name="radio3" data-labelauty="mexicaine"></li>
+		<li><input type="radio" name="radio3" data-labelauty="Pizzeria"></li>
+		<li><input type="radio" name="radio3" data-labelauty="libanaise"></li>
+		<li><input type="radio" name="radio3" data-labelauty="belge"></li>
+		<li><input type="radio" name="radio3" data-labelauty="fruits de mer"></li>
+		<li><input type="radio" name="radio3" data-labelauty="barbecue"></li>
+    </ul>
+<hr>
+
+	<ul class="dowebok4">
+	    <p class="par">le local vous préférez :</p>
+		<li><input type="radio" name="radio4" data-labelauty="Paris" checked></li>
+		<li><input type="radio" name="radio4" data-labelauty="Saint-Denis"></li>
+		<li><input type="radio" name="radio4" data-labelauty="Versailles"></li>
+		<li><input type="radio" name="radio4" data-labelauty="Créteil"></li>
+		<li><input type="radio" name="radio4" data-labelauty="Orsay"></li>
+		<li><input type="radio" name="radio4" data-labelauty="Évry"></li>
+	</ul>
+
+	<hr>
+<ul class="dowebok5">
+	<p class="par">Vous voulez boire un verre ou café:</p>
+		<li><input type="radio" name="radio5" data-labelauty="vin" checked></li>
+		<li><input type="radio" name="radio5" data-labelauty="café"></li>
+</ul>
+<hr>
+<div style="text-align: center;margin-top: 20px;margin-bottom: 50px;">
+		<button class="btn" onclick="confirme()">Submit</button>
+		</div>
+	</div>
+</center>
+
+<script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../js/jquery-labelauty.js"></script>
+<script type="text/javascript">
+$(function(){
+	$(':input').labelauty();
+});
+</script>
+
+</body>
+</html>
