@@ -98,19 +98,19 @@ if ($cinema == "oui") {
         <hr>
         <ul class="dowebok3">
             <p class="par">le type de cuisine pour un restaurant:</p>
-            <li><input type="radio" name="type_plat" data-labelauty="italienne" value="italienne" checked></li>
-            <li><input type="radio" name="type_plat" data-labelauty="japonaise" value="japonaise"></li>
-            <li><input type="radio" name="type_plat" data-labelauty="allemande" value="allemande"></li>
-            <li><input type="radio" name="type_plat" data-labelauty="française" value="française"></li>
-            <li><input type="radio" name="type_plat" data-labelauty="chinoise" value="chinoise"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="italien" value="italien" checked></li>
+            <li><input type="radio" name="type_plat" data-labelauty="japonais" value="japonais"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="allemand" value="allemand"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="français" value="français"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="chinois" value="chinois"></li>
             <li><input type="radio" name="type_plat" data-labelauty="indien" value="indien"></li>
-            <li><input type="radio" name="type_plat" data-labelauty="coréenne" value="coréenne"></li>
-            <li><input type="radio" name="type_plat" data-labelauty="vietnamienne" value="vietnamienne"></li>
-            <li><input type="radio" name="type_plat" data-labelauty="espagnole" value="espagnole"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="coréen" value="coréen"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="vietnamien" value="vietnamien"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="espagnol" value="espagnol"></li>
             <li><input type="radio" name="type_plat" data-labelauty="fast-food" value="fast-food"></li>
-            <li><input type="radio" name="type_plat" data-labelauty="mexicaine" value="mexicaine"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="mexicain" value="mexicain"></li>
             <li><input type="radio" name="type_plat" data-labelauty="Pizzeria" value="Pizzeria"></li>
-            <li><input type="radio" name="type_plat" data-labelauty="libanaise" value="libanaise"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="libanais" value="libanais"></li>
             <li><input type="radio" name="type_plat" data-labelauty="belge" value="belge"></li>
             <li><input type="radio" name="type_plat" data-labelauty="fruits de mer" value="fruits-de-mer"></li>
             <li><input type="radio" name="type_plat" data-labelauty="barbecue" value="barbecue"></li>
