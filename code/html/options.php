@@ -77,61 +77,63 @@ if ($cinema == "oui") {
 
         <ul class="dowebok1">
             <p class="par">Nombre Participants :</p>
-            <li><input type="radio" name="radio1" data-labelauty="0-5" value="0-5" checked></li>
-            <li><input type="radio" name="radio1" data-labelauty="5-10" value="5-10"></li>
-            <li><input type="radio" name="radio1" data-labelauty="10-15" value="10-15"></li>
-            <li><input type="radio" name="radio1" data-labelauty="15-20" value="15-20"></li>
-            <li><input type="radio" name="radio1" data-labelauty="20-30" value="20-30"></li>
-            <li><input type="radio" name="radio1" data-labelauty="30+" value="30+"></li>
+            <li><input type="radio" name="number" data-labelauty="0-5" value="5" checked></li>
+            <li><input type="radio" name="number" data-labelauty="5-10" value="10"></li>
+            <li><input type="radio" name="number" data-labelauty="10-15" value="15"></li>
+            <li><input type="radio" name="number" data-labelauty="15-20" value="20"></li>
+            <li><input type="radio" name="number" data-labelauty="20-30" value="30"></li>
+            <li><input type="radio" name="number" data-labelauty="30+" value="50"></li>
         </ul>
 
         <hr>
         <ul class="dowebok2">
             <p class="par">Distance maximale entre les trois lieux :</p>
-            <li><input type="radio" name="radio2" data-labelauty="500m" value="500" checked></li>
-            <li><input type="radio" name="radio2" data-labelauty="1km" value="1000"></li>
-            <li><input type="radio" name="radio2" data-labelauty="2km" value="2000"></li>
-            <li><input type="radio" name="radio2" data-labelauty="3km" value="3000"></li>
-            <li><input type="radio" name="radio2" data-labelauty="5km" value="5000"></li>
-            <li><input type="radio" name="radio2" data-labelauty="10km" value="100000"></li>
+            <li><input type="radio" name="distance" data-labelauty="500m" value="500" checked></li>
+            <li><input type="radio" name="distance" data-labelauty="1km" value="1000"></li>
+            <li><input type="radio" name="distance" data-labelauty="2km" value="2000"></li>
+            <li><input type="radio" name="distance" data-labelauty="3km" value="3000"></li>
+            <li><input type="radio" name="distance" data-labelauty="5km" value="5000"></li>
+            <li><input type="radio" name="distance" data-labelauty="10km" value="100000"></li>
         </ul>
         <hr>
         <ul class="dowebok3">
             <p class="par">le type de cuisine pour un restaurant:</p>
-            <li><input type="radio" name="radio3" data-labelauty="italienne" value="italienne" checked></li>
-            <li><input type="radio" name="radio3" data-labelauty="japonaise" value="japonaise"></li>
-            <li><input type="radio" name="radio3" data-labelauty="allemande" value="allemande"></li>
-            <li><input type="radio" name="radio3" data-labelauty="française" value="française"></li>
-            <li><input type="radio" name="radio3" data-labelauty="chinoise" value="chinoise"></li>
-            <li><input type="radio" name="radio3" data-labelauty="indien" value="indien"></li>
-            <li><input type="radio" name="radio3" data-labelauty="coréenne" value="coréenne"></li>
-            <li><input type="radio" name="radio3" data-labelauty="vietnamienne" value="vietnamienne"></li>
-            <li><input type="radio" name="radio3" data-labelauty="espagnole" value="espagnole"></li>
-            <li><input type="radio" name="radio3" data-labelauty="fast-food" value="fast-food"></li>
-            <li><input type="radio" name="radio3" data-labelauty="mexicaine" value="mexicaine"></li>
-            <li><input type="radio" name="radio3" data-labelauty="Pizzeria" value="Pizzeria"></li>
-            <li><input type="radio" name="radio3" data-labelauty="libanaise" value="libanaise"></li>
-            <li><input type="radio" name="radio3" data-labelauty="belge" value="belge"></li>
-            <li><input type="radio" name="radio3" data-labelauty="fruits de mer" value="fruits-de-mer"></li>
-            <li><input type="radio" name="radio3" data-labelauty="barbecue" value="barbecue"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="italienne" value="italienne" checked></li>
+            <li><input type="radio" name="type_plat" data-labelauty="japonaise" value="japonaise"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="allemande" value="allemande"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="française" value="française"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="chinoise" value="chinoise"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="indien" value="indien"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="coréenne" value="coréenne"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="vietnamienne" value="vietnamienne"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="espagnole" value="espagnole"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="fast-food" value="fast-food"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="mexicaine" value="mexicaine"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="Pizzeria" value="Pizzeria"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="libanaise" value="libanaise"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="belge" value="belge"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="fruits de mer" value="fruits-de-mer"></li>
+            <li><input type="radio" name="type_plat" data-labelauty="barbecue" value="barbecue"></li>
         </ul>
         <hr>
 
         <ul class="dowebok4">
             <p class="par">le local vous préférez :</p>
-            <li><input type="radio" name="radio4" data-labelauty="Paris" value="Paris" checked></li>
-            <li><input type="radio" name="radio4" data-labelauty="Saint-Denis" value="Saint-Denis"></li>
-            <li><input type="radio" name="radio4" data-labelauty="Versailles" value="Versailles"></li>
-            <li><input type="radio" name="radio4" data-labelauty="Créteil" value="Créteil"></li>
-            <li><input type="radio" name="radio4" data-labelauty="Orsay" value="Orsay"></li>
-            <li><input type="radio" name="radio4" data-labelauty="Évry" value="Évry"></li>
+            <li><input type="radio" name="city" data-labelauty="Paris" value="Paris" checked></li>
+            <li><input type="radio" name="city" data-labelauty="Saint-Denis" value="Saint-Denis"></li>
+            <li><input type="radio" name="city" data-labelauty="Versailles" value="Versailles"></li>
+            <li><input type="radio" name="city" data-labelauty="Créteil" value="Créteil"></li>
+            <li><input type="radio" name="city" data-labelauty="Orsay" value="Orsay"></li>
+            <li><input type="radio" name="city" data-labelauty="Évry" value="Évry"></li>
+            <li><input type="radio" name="city" data-labelauty="Antony" value="Antony"></li>
+            <li><input type="radio" name="city" data-labelauty="Palaiseau" value="Palaiseau"></li>
         </ul>
 
         <hr>
         <ul class="dowebok5">
             <p class="par">Vous voulez boire un verre ou café:</p>
-            <li><input type="radio" name="radio5" data-labelauty="vin" value="vin" checked></li>
-            <li><input type="radio" name="radio5" data-labelauty="café" value="café"></li>
+            <li><input type="radio" name="drink" data-labelauty="vin" value="vin" checked></li>
+            <li><input type="radio" name="drink" data-labelauty="café" value="café"></li>
         </ul>
         <hr>
         <div style="text-align: center;margin-top: 20px;margin-bottom: 50px;">
