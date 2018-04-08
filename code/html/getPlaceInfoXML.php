@@ -6,7 +6,7 @@
  * Time: 0:09
  */
 
-require("dbInfo.php");
+require("constants.php");
 // Start XML file, create the parent node
 $dom = new DOMDocument("1.0");
 $node = $dom->createElement("markers");
