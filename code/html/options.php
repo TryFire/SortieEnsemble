@@ -119,14 +119,32 @@ if ($cinema == "oui") {
 
         <ul class="dowebok4">
             <p class="par">le local vous préférez :</p>
-            <li><input type="radio" name="city" data-labelauty="Paris" value="Paris" checked></li>
+            <li><input type="radio" name="city" data-labelauty="Antony" value="Antony" checked></li>
             <li><input type="radio" name="city" data-labelauty="Saint-Denis" value="Saint-Denis"></li>
             <li><input type="radio" name="city" data-labelauty="Versailles" value="Versailles"></li>
             <li><input type="radio" name="city" data-labelauty="Créteil" value="Créteil"></li>
             <li><input type="radio" name="city" data-labelauty="Orsay" value="Orsay"></li>
             <li><input type="radio" name="city" data-labelauty="Évry" value="Évry"></li>
-            <li><input type="radio" name="city" data-labelauty="Antony" value="Antony"></li>
+            <li><input type="radio" name="city" data-labelauty="Massy" value="Massy"></li>
             <li><input type="radio" name="city" data-labelauty="Palaiseau" value="Palaiseau"></li>
+            <li><input type="radio" name="city" data-labelauty="Orly" value="Orly"></li>
+            <li><input type="radio" name="city" data-labelauty="Montlhéry" value="Montlhéry"></li>
+            <li><input type="radio" name="city" data-labelauty="Longjumeau" value="Longjumeau"></li>
+            <li><input type="radio" name="city" data-labelauty="Paray-Vieille-Poste" value="Paray-Vieille-Poste"></li>
+            <li><input type="radio" name="city" data-labelauty="Clamart" value="Clamart"></li>
+            <li><input type="radio" name="city" data-labelauty="Vitry-sur-Seine" value="Vitry-sur-Seine"></li>
+            <li><input type="radio" name="city" data-labelauty="Neuilly-sur-Seine" value="Neuilly-sur-Seine"></li>
+            <li><input type="radio" name="city" data-labelauty="Bobigny" value="Bobigny"></li>
+            <li><input type="radio" name="city" data-labelauty="Montreuil" value="Montreuil"></li>
+            <li><input type="radio" name="city" data-labelauty="13E+Paris" value="13E+Paris"></li>
+            <li><input type="radio" name="city" data-labelauty="7E+Paris" value="7E+Paris"></li>
+            <li><input type="radio" name="city" data-labelauty="15E+Paris" value="15E+Paris"></li>
+            <li><input type="radio" name="city" data-labelauty="1ER+Paris" value="1ER+Paris"></li>
+            <li><input type="radio" name="city" data-labelauty="11E+Paris" value="11E+Paris"></li>
+            <li><input type="radio" name="city" data-labelauty="10E+Paris" value="10E+Paris"></li>
+            <li><input type="radio" name="city" data-labelauty="8E+Paris" value="8E+Paris"></li>
+            <li><input type="radio" name="city" data-labelauty="9E+Paris" value="9E+Paris"></li>
+            <li><input type="radio" name="city" data-labelauty="17E+Paris" value="17E+Paris"></li>
         </ul>
 
         <hr>
