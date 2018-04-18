@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $type_plat = $_POST["type_plat"];
     $city = $_POST["city"];
     $drink = $_POST["drink"];
-
 }
 
 $location = getLocation($city);
@@ -65,11 +64,58 @@ $night_club_params = http_build_query($night_club_data);
 
 $night_club_url = $base_url_near_by_search . $night_club_params;
 
-echo $restaurant_url."<br>";
-echo $bar_url."<br>";
-echo $night_club_url."<br>";
+//echo $restaurant_url."<br>";
+//echo $bar_url."<br>";
+//echo $night_club_url."<br>";
 
-//echo getDataByUrl($restaurant_url);
+$restaurant_json= getDataByUrl($restaurant_url); //get results(restaurant) from google
+$restaurant = decodeJsonToArray($restaurant_json, "restaurant"); //decode results to array
+
+$bar_json = getDataByUrl($bar_url); //get results(bar) from google
+$bar = decodeJsonToArray($bar_json, "bar"); //decode results to array
+
+$night_club_json = getDataByUrl($night_club_url); //get results(night_club) from google
+$night_club = decodeJsonToArray($night_club_json, "night_club"); //decode results to array
+
+echo json_encode(array("results"=>array("restaurant"=>$restaurant, "bar"=>$bar, "night_club"=>$night_club)));
+
+function decodeJsonToArray($json, $type) {
+    $result = json_decode($json,true);
+
+    $results = $result['results'];
+    //var_dump($results);
+    $array = null;
+    /*echo count($results);
+    echo "<br>";*/
+    if (count($results) > 0) {
+        foreach ($results as $x => $x_value) {
+            $r_lat = $x_value['geometry']['location']['lat'];
+            $r_lng = $x_value['geometry']['location']['lng'];
+            $r_name = $x_value['name'];
+            $r_place_id = $x_value['place_id'];
+            $r_address = $x_value['vicinity'];
+            $r_photo = "";
+            if (array_key_exists("photos", $x_value)) {
+                $r_photo = $x_value['photos'][0]['photo_reference'];
+            }
+            global $key;
+            global $base_url_photo_search;
+
+            $photo_url = "";
+            if ($r_photo == "") {
+
+            } else {
+                $photo_param = http_build_query(array("photoreference"=>$r_photo, "key"=>$key, "maxwidth"=>200, "maxheight"=>200));
+                $photo_url = $base_url_photo_search.$photo_param;
+            }
+            //echo "<a href='$photo_url'>look photo</a>>";
+
+            $a1 = array("name"=>$r_name, "address"=>$r_address, "photo_url"=>$photo_url);
+            $array[$x] = $a1;
+        }
+    }
+    return $array;
+}
 
 function getDataByUrl($url)
 {

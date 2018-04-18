@@ -1,20 +1,65 @@
+<!--<html>
+<head>
+    <script type="text/javascript">
+        function validate_email(field,alerttxt)
+        {
+            with (field)
+            {
+                apos=value.indexOf("@")
+                dotpos=value.lastIndexOf(".")
+                if (apos<1||dotpos-apos<2)
+                {alert(alerttxt);return false}
+                else {return true}
+            }
+        }
+
+        function validate_form(thisform)
+        {
+            with (thisform)
+            {
+                if (validate_email(pas,"Not a valid e-mail address!")==false)
+                {pas.focus();return false}
+            }
+        }
+    </script>
+</head>
+
+<body>
+<form action="submitpage.htm"onsubmit="return validate_form(this);" method="post">
+    Email: <input type="text" name="email" size="30">
+    Pass: <input type="text" name="pas" size="30">
+    <input type="submit" value="Submit">
+</form>
+</body>
+
+</html>-->
+
 <?php
-require ("constants.php");
-    //echo "<a href='show_3places.html' target='_blank'>open map</a>";
-$url = $bu_near_by_search."location=48.759255,2.302553&radius=5000&type=restaurant&keyword=barbecue&"."key=".$key;
-$ch = curl_init();
 
-echo $url;
-// set url
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_HEADER, 0);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // 跳过证书检查
-//curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, true);
-$output = curl_exec($ch);
-//echo output
-echo $output;
+echo urldecode("http://localhost:63342/code/html/test.php?resto=nihao&disco=ss%20s&bar=vbbb")."<br>";
+$place = convertUrlQuery(urldecode($_SERVER['QUERY_STRING']));
+foreach ($place as $value){
+    echo $value;
+}
+function convertUrlQuery($query)
+{
+    $queryParts = explode('&', $query);
+    $params = array();
+    foreach ($queryParts as $param) {
+        $item = explode('=', $param);
+        $params[$item[0]] = $item[1];
+    }
+    return $params;
+}
 
-// close curl resource to free up system resources
-curl_close($ch);
+function getUrlQuery($array_query)
+{
+    $tmp = array();
+    foreach($array_query as $k=>$param)
+    {
+        $tmp[] = $k.'='.$param;
+    }
+    $params = implode('&',$tmp);
+    return $params;
+}
 ?>

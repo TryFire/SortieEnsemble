@@ -22,6 +22,11 @@
 <div id="map"></div>
 
 <script>
+
+
+</script>
+
+<script>
     var customLabel = {
         restaurant: {
             label: 'R'
@@ -30,6 +35,25 @@
             label: 'B'
         }
     };
+    var restaurant =getCookie("restaurant");
+    var night_club =getCookie("night_club");
+    var bar =getCookie("bar");
+    var url = encodeURI("getPlaceInfoXML.php?"+"restaurant="+restaurant+"&night_club="+night_club+"&bar="+bar);
+    function getCookie(c_name)
+    {
+        if (document.cookie.length>0)
+        {
+            c_start=document.cookie.indexOf(c_name + "=")
+            if (c_start!=-1)
+            {
+                c_start=c_start + c_name.length+1
+                c_end=document.cookie.indexOf(";",c_start)
+                if (c_end==-1) c_end=document.cookie.length
+                return unescape(document.cookie.substring(c_start,c_end))
+            }
+        }
+        return ""
+    }
 
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -39,7 +63,7 @@
         var infoWindow = new google.maps.InfoWindow;
 
         // Change this depending on the name of your PHP or XML file
-        downloadUrl('getPlaceInfoXML.php', function(data) {
+        downloadUrl(url, function(data) {
             var xml = data.responseXML;
             var markers = xml.documentElement.getElementsByTagName('marker');
             Array.prototype.forEach.call(markers, function(markerElem) {
@@ -60,6 +84,7 @@
                 text.textContent = address
                 infowincontent.appendChild(text);
                 var icon = customLabel[type] || {};
+
                 var marker = new google.maps.Marker({
                     map: map,
                     position: point,

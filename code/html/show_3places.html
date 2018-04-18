@@ -2,7 +2,27 @@
 <html>
 <body>
 
-<iframe src="place_detail.html" width="60%" height="500px"></iframe>
+<script>
+    var restaurant = "Three Blue Ducks";
+    var night_club = "Hunter Gatherer";
+    var bar = "The Potting Shed";
+    setCookie("restaurant", restaurant,100);
+    setCookie("night_club", night_club, 100);
+    setCookie("bar", bar, 100);
+    function setCookie(c_name,value,expiredays)
+    {
+        var exdate=new Date();
+        exdate.setDate(exdate.getDate()+expiredays);
+        document.cookie=c_name+ "=" +escape(value)+
+            ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+    }
+</script>
+<div>
+    <p id="msg">sss</p>
+</div>
+<div>
+<iframe id="detail" src="place_detail.html" width="60%" height="500px"></iframe>
+</div>
 
 </body>
 </html>
