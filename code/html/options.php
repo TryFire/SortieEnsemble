@@ -72,7 +72,7 @@ if ($cinema == "oui") {
     <div style="margin-left: 150px;margin-right: 150px;text-align: left;">
         <h2 class="par">choisissez votre préférence:</h2>
         <hr>
-        <form action="display.php" method="post">
+        <!--<form action="display.php" method="post">-->
 
 
         <ul class="dowebok1">
@@ -155,11 +155,39 @@ if ($cinema == "oui") {
         </ul>
         <hr>
         <div style="text-align: center;margin-top: 20px;margin-bottom: 50px;">
-            <button class="btn" ">Submit</button>
+            <button class="btn" onclick="display()">Submit</button>
         </div>
-        </form>
+        <!--</form>-->
     </div>
 </center>
+
+<script>
+    function display() {
+        alert("start");
+        setCookie("number", valide("number"), 100);
+        setCookie("distance", valide("distance"), 100);
+        setCookie("city", valide("city"), 100);
+        setCookie("drink", valide("drink"), 100);
+        setCookie("type_plat", valide("type_plat"), 100);
+        window.location.href="display.html";
+    }
+    function valide(name) {
+        var radio = document.getElementsByName(name);
+        for (var i = radio.length - 1; i >= 0; i--) {
+            if (radio[i].checked) {
+                return (radio[i].value);
+            }
+        }
+    }
+
+    function setCookie(c_name,value,expiredays)
+    {
+        var exdate=new Date();
+        exdate.setDate(exdate.getDate()+expiredays);
+        document.cookie=c_name+ "=" +escape(value)+
+            ((expiredays==null) ? "" : ";expires="+exdate.toGMTString())
+    }
+</script>
 
 <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="../js/jquery-labelauty.js"></script>

@@ -36,6 +36,7 @@
 
 <?php
 
+
 echo urldecode("http://localhost:63342/code/html/test.php?resto=nihao&disco=ss%20s&bar=vbbb")."<br>";
 $place = convertUrlQuery(urldecode($_SERVER['QUERY_STRING']));
 foreach ($place as $value){

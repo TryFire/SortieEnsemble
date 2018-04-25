@@ -16,6 +16,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $city = $_POST["city"];
     $drink = $_POST["drink"];
 }
+/*$number = "5";
+$distance = "1000";
+$type_plat = "italien";
+$city = "1ER+Paris";
+$drink = "vin";*/
+
 
 $location = getLocation($city);
 $lat = $location['lat'];
@@ -33,7 +39,7 @@ $restaurant_params = http_build_query($restaurant_data);
 
 $restaurant_url = $base_url_near_by_search . $restaurant_params;
 $bar_data = null;
-if ($drink = "vin") {
+if ($drink == "vin") {
     $bar_data =
         array("location" => $loca,
             "type" => "bar",

@@ -4,26 +4,22 @@
 <head>
     <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="../js/display.js"></script>
+    <script type="text/javascript" src="../js/cookie.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/btn_style.css">
     <link rel="stylesheet" type="text/css" href="../css/load.css">
 <style>
 body{
-    margin-left: 20px;
-    margin-right: 20px; 
+    padding-right: 10px;
 }
 
-#header {
-    background-color:black;
-    color:white;
-    text-align:center;
-    padding:5px;
-}
-#nav {
+#preference {
     line-height:30px;
     background-color:#eeeeee;
     height:300px;
     width:15%;
     float:left;
-    padding:5px;	      
+    padding:5px;
+    margin-top: 50px;
 }
 .content {
     width:55%;
@@ -32,13 +28,22 @@ body{
     padding:10px;	 	 
 }
 #footer {
-    background-color:black;
+    background-color:#333;;
     color:white;
+    opacity: 0.7;
     clear:both;
     text-align:center;
-   padding:5px;	 	 
+    padding:5px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
 }
-li{
+#footer:hover{
+    opacity: 1;
+    background-color:#111;;
+}
+#main_data li{
     height: 120px;
     opacity: 0.8;
     border: 1px solid #E3E3E3;  
@@ -56,19 +61,65 @@ img{
 li input{
     display: none;
 }
+
+#header {
+    background-color:#333;
+    text-align:center;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}
+#nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    left: 40%;
+}
+
+#nav li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color: #4CAF50;
+}
 </style>
 </head>
 
 <body>
 
 <div id="header">
-<h1>City Gallery</h1>
+    <ul id="nav">
+        <li onclick="changeNav(this)"><a class="active" href="#page_r">RESTAUTRANT</a></li>
+        <li onclick="changeNav(this)"><a href="#page_d">DISCOTHEQUE</a></li>
+        <li onclick="changeNav(this)"><a href="#page_b">BAR</a></li>
+    </ul>
 </div>
 
-<div id="nav">
-London<br>
-Paris<br>
-Tokyo<br>
+<div id="preference">
+<h3>Vous avez choisi : </h3>
+    <p id="p_number"></p>
+    <p id="p_distance"></p>
+    <p id="p_type"></p>
+    <p id="p_city"></p>
+    <p id="p_drink"></p>
 </div>
 
 <div id="load" class="spinner">
@@ -77,8 +128,8 @@ Tokyo<br>
     <div class="bounce3"></div>
 </div>
 
-<div id="main_data" class="content">
-    <p>RESTAURANT</p>
+<div id="main_data" class="content" style="margin-top: 50px">
+    <p id="page_r">RESTAURANT</p>
     <ul id="restaurant">
         
         <!-- <li id="1" onclick="myRadio(this.id, 'restaurant')" onmouseover="myOn(this.id)" onmouseout="myOut(this.id)">
@@ -91,11 +142,11 @@ Tokyo<br>
         </li> -->
     </ul>
 
-    <p>DISCOTHEQUE</p>
+    <p id="page_d">DISCOTHEQUE</p>
     <ul id="night_club">
     </ul>
 
-    <p>BAR</p>
+    <p id="page_b">BAR</p>
     <ul id="bar">
     </ul>
 </div>
@@ -108,15 +159,31 @@ Tokyo<br>
     $("#load").show();
     $("#main_data").hide();
 
+    var num = getCookie("number");
+    var dis = getCookie("distance");
+    var ty = getCookie("type_plat");
+    var ci = getCookie("city");
+    var dr = getCookie("drink");
+
+    $("#p_number").html(num);
+    $("#p_distance").html(dis);
+    $("#p_type").html(ty);
+    $("#p_city").html(ci);
+    $("#p_drink").html(dr);
+
+    alert(dr)
+
     $.post("display.php",
         {
-            number:"1",
-            distance:"2000",
-            type_plat:"italien",
-            city:"1ER+Paris",
-            drink:"vin"
+            number:num,
+            distance:dis,
+            type_plat:ty,
+            city:ci,
+            drink:dr
         },
     function (data, status) {
+        alert(status);
+        //alert(data);
         var json_obj = $.parseJSON(data);
         var results = json_obj.results;
         var restaurants = results.restaurant;
@@ -145,7 +212,7 @@ Tokyo<br>
             createLi("night_club", img_url, name, address);
         })
 
-        $("li").each(function(){
+        $("#main_data").find("li").each(function(){
             var ul = $(this).parent();
             var type = ul.attr("id");
             $(this).bind("click",function(){
@@ -160,22 +227,33 @@ Tokyo<br>
         });
     });
 
+    function changeNav(obj) {
+        $("#nav").find("a").css({"background-color": "#333"});
+        $(obj).children("a").css({"background-color": "#4CAF50"});
+    };
+
     /*createLi("restaurant", "../img/logo.png", "Antony Bon","55avenue");
     createLi("restaurant", "../img/logo.png", "r Bon","55avenue");
     createLi("night_club", "../img/logo.png", "n Bon","55avenue");
     createLi("night_club", "../img/logo.png", "Annnntony Bon","55avenue");
     createLi("bar", "../img/logo.png", "b Bon","55avenue");*/
-
+    
+    function detail() {
+        var restaurant_name = valide("restaurant");
+        var bar_name = valide("bar");
+        var night_club_name = valide("night_club");
+        setCookie("restaurant", restaurant_name,100);
+        setCookie("bar", bar_name,100);
+        setCookie("night_club", night_club_name,100);
+        window.location.href="show_3places.html";
+    }
     
 </script>
 
 
 
 <div id="footer">
-Copyright ? W3Schools.com
-<button onclick="valide('restaurant')">
-    valide
-</button>
+    DETAIL
 </div>
 
 </body>

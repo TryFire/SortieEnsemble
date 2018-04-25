@@ -10,7 +10,7 @@ static $username = "root";
 static $password = "123456";
 static $database = "sortir";
 
-static $key = "AIzaSyBilpotFJdv0adi8t_41xylYqjrH_rdjqk";
+static $key = "AIzaSyBEmDYn6IWFt_vvrbqRV0EMWbGFLd5oGi4";
 static $base_url_near_by_search = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
 
 static $type_club = "night_club";
