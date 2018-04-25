@@ -23,6 +23,7 @@ input.labelauty + label
 	-webkit-border-radius: 3px 3px 3px 3px;
 
 
+
 	transition: background-color 0.25s;
 	-moz-transition: background-color 0.25s;
 	-webkit-transition: background-color 0.25s;

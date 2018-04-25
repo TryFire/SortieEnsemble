@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/display.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/load.css">
+<style>
+body{
+    margin-left: 20px;
+    margin-right: 20px; 
+}
+
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:15%;
+    float:left;
+    padding:5px;	      
+}
+.content {
+    width:55%;
+    background-color: #eeeeef;
+    float:left;
+    padding:10px;	 	 
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+   padding:5px;	 	 
+}
+li{
+    height: 120px;
+    opacity: 0.8;
+    border: 1px solid #E3E3E3;  
+    border-radius: 5px;
+    padding: 10px;
+    list-style: none;
+    margin-bottom: 15px;
+    background: #fff;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+}
+img{
+    width: 100px;float: left;text-align: center; height: 100px
+}
+li input{
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div id="header">
+<h1>City Gallery</h1>
+</div>
+
+<div id="nav">
+London<br>
+Paris<br>
+Tokyo<br>
+</div>
+
+<div id="load" class="spinner">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+</div>
+
+<div id="main_data" class="content">
+    <p>RESTAURANT</p>
+    <ul id="restaurant">
+        
+        <!-- <li id="1" onclick="myRadio(this.id, 'restaurant')" onmouseover="myOn(this.id)" onmouseout="myOut(this.id)">
+            <img src="logo.png">
+            <input type="radio" value="1"  name="restaurant" >
+            <div class="data">
+                <p class="name">name namensfdsssssssssssssssamenana</p>
+                <p class="address">address</p>
+            </div>
+        </li> -->
+    </ul>
+
+    <p>DISCOTHEQUE</p>
+    <ul id="night_club">
+    </ul>
+
+    <p>BAR</p>
+    <ul id="bar">
+    </ul>
+</div>
+
+<div id="choosed" style="float:right;">
+    <p>zhege</p>
+    <p>nage</p>
+</div>
+<script>
+    $("#load").show();
+    $("#main_data").hide();
+
+    $.post("display.php",
+        {
+            number:"1",
+            distance:"2000",
+            type_plat:"italien",
+            city:"1ER+Paris",
+            drink:"vin"
+        },
+    function (data, status) {
+        var json_obj = $.parseJSON(data);
+        var results = json_obj.results;
+        var restaurants = results.restaurant;
+        var bars = results.bar;
+        var night_clubs = results.night_club;
+
+        $("#load").hide();
+        $("#main_data").show();
+
+        $.each(restaurants, function (i, n) {
+            var name = n.name;
+            var address = n.address;
+            var img_url = n.photo_url;
+            createLi("restaurant", img_url, name, address);
+        })
+        $.each(bars, function (i, n) {
+            var name = n.name;
+            var address = n.address;
+            var img_url = n.photo_url;
+            createLi("bar", img_url, name, address);
+        })
+        $.each(night_clubs, function (i, n) {
+            var name = n.name;
+            var address = n.address;
+            var img_url = n.photo_url;
+            createLi("night_club", img_url, name, address);
+        })
+
+        $("li").each(function(){
+            var ul = $(this).parent();
+            var type = ul.attr("id");
+            $(this).bind("click",function(){
+                myRadio(this.id, type);
+            })
+            $(this).bind("mouseover",function(){
+                myOn(this.id);
+            })
+            $(this).bind("mouseout",function(){
+                myOut(this.id);
+            })
+        });
+    });
+
+    /*createLi("restaurant", "../img/logo.png", "Antony Bon","55avenue");
+    createLi("restaurant", "../img/logo.png", "r Bon","55avenue");
+    createLi("night_club", "../img/logo.png", "n Bon","55avenue");
+    createLi("night_club", "../img/logo.png", "Annnntony Bon","55avenue");
+    createLi("bar", "../img/logo.png", "b Bon","55avenue");*/
+
+    
+</script>
+
+
+
+<div id="footer">
+Copyright ? W3Schools.com
+<button onclick="valide('restaurant')">
+    valide
+</button>
+</div>
+
+</body>
+</html>
