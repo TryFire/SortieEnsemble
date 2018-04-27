@@ -8,7 +8,7 @@
 
 require("getLocation.php");
 require("constants.php");
-require ("saveResults.php");
+require("saveResults.php");
 $number = $distance = $type_plat = $city = $drink = "";
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $number = $_POST["number"];

@@ -1,6 +1,43 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/cookie.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/load.css">
+    <title>
+        détails des places
+    </title>
+    <style>
+        #header {
+            background-color: #333333;
+            color:white;
+            text-align:center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            padding:5px;
+        }
+        #detail{
+            float: left;
+            margin: 10px;
+        }
+        #other_information{
+            float: left; margin-left: 20px; width: 40%
+        }
+        #data{
+            margin-top: 30px
+        }
+        #data p{
+            margin-left: 40px;
+        }
+    </style>
+</head>
 <body>
+
+<div id="header">
+DETAILS DES TROIS PLACES
+</div>
 
 <!--<script>
     var restaurant = "Restaurant italien La Fontaine d'Italie";
@@ -18,11 +55,106 @@
     }
 </script>-->
 <div>
-    <p id="msg">sss</p>
+<iframe id="detail" src="place_detail.html" width="55%" height="500px"></iframe>
 </div>
-<div>
-<iframe id="detail" src="place_detail.html" width="60%" height="500px"></iframe>
+
+<div id="other_information">
+    <div id="research">
+        <p>Cliquer ici pour regarder les distances :  <span><button onclick="getDistace()">ICI</button></span></p>
+    </div>
+    <div id="load" class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+
+    <div id="data" >
+
+        <div id="data1">
+
+        </div>
+        <div id="data2"></div>
+        <div id="data3"></div>
+        <!--<div>
+            <h4 >Le Zag à Vin  ->  Kinugawa Vendôme : </h4>
+            <p class="during">during: 30min</p>
+            <p class="distance">distances : 10km</p>
+        </div>-->
+    </div>
+
+
 </div>
+
+<script>
+    $("#load").hide();
+</script>
+
+<script>
+    function getDistace() {
+        $("#load").show();
+        $("#research").hide();
+        var night_club = getCookie("night_club");
+        var restaurant = getCookie("restaurant");
+        var bar = getCookie("bar");
+
+        $.post("getDistance.php", {
+            bar:bar,
+            night_club:night_club,
+            restaurant:restaurant
+        }, function (data, status) {
+            alert(status);
+            alert(data);
+            var results = $.parseJSON(data).results;
+            var bar_to_restaurant = results.bar_to_restaurant;
+            var bar_to_club = results.bar_to_club;
+            var restaurant_to_club = results.restaurant_to_club;
+
+            var distance_bar_to_restaurant = bar_to_restaurant.distance;
+            var duration_bar_to_restaurant = bar_to_restaurant.duration;
+
+            var distance_bar_to_club = bar_to_club.distance;
+            var duration_bar_to_club = bar_to_club.duration;
+
+            var distance_restaurant_to_club = restaurant_to_club.distance;
+            var duration_restaurant_to_club = restaurant_to_club.duration;
+
+
+            var bar = getCookie("bar");
+            var restaurant = getCookie("restaurant");
+            var night_club = getCookie("night_club");
+
+            var h_bar_to_restaurant = $("<h4>"+bar +"(bar) -- " + restaurant +"(restaurant):</h4>")
+            var h_bar_to_club = $("<h4>"+bar +"(bar) -- " + night_club +"(discotheque):</h4>")
+            var h_restaurant_to_club = $("<h4>"+restaurant +"(restaurant) -- " + night_club +"(discotheque):</h4>")
+
+            var p_distance_bar_to_restaurant = createP("distance", "distance: "+ distance_bar_to_restaurant);
+            var p_duration_bar_to_restaurant = createP("duration", "duration(walking): "+ duration_bar_to_restaurant);
+            var p_distance_bar_to_club = createP("distance", "distance: "+ distance_bar_to_club);
+            var p_duration_bar_to_club = createP("duration", "duration(walking): "+ duration_bar_to_club);
+            var p_distance_restaurant_to_club = createP("distance", "distance: "+ distance_restaurant_to_club);
+            var p_duration_restaurant_to_club = createP("duration", "duration(walking): "+ duration_restaurant_to_club);
+
+            $("#load").hide();
+
+            $("#data1").append(h_bar_to_restaurant);
+            $("#data1").append(p_distance_bar_to_restaurant);
+            $("#data1").append(p_duration_bar_to_restaurant);
+
+            $("#data2").append(h_bar_to_club);
+            $("#data2").append(p_distance_bar_to_club);
+            $("#data2").append(p_duration_bar_to_club);
+
+            $("#data3").append(h_restaurant_to_club);
+            $("#data3").append(p_distance_restaurant_to_club);
+            $("#data3").append(p_duration_restaurant_to_club);
+
+        })
+    }
+
+    function createP(type, content) {
+        return $("<p class=\'"+type+"\'>"+ content +"</p>");
+    }
+</script>
 
 </body>
 </html>

@@ -17,4 +17,7 @@ static $type_club = "night_club";
 static $keyword_club = "boîte-de-nuit";
 
 static $base_url_photo_search = "https://maps.googleapis.com/maps/api/place/photo?";
+
+
+static $base_url_distance = "https://maps.googleapis.com/maps/api/distancematrix/json?";
 ?>
