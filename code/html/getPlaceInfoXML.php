@@ -24,7 +24,8 @@ header("Content-type: text/xml");
 
 foreach ($place as $value){
     if ($value == null || $value == "") continue;
-    $sql = "select * from markers where name = "."'{$value}'";
+    $v = addslashes($value);
+    $sql = "select * from markers where name = "."'{$v}'";
     $result = $connection->query($sql);
 
     if ($result->num_rows > 0) {

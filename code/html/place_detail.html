@@ -21,10 +21,6 @@
 <body>
 <div id="map"></div>
 
-<script>
-
-
-</script>
 
 <script>
     var customLabel = {
@@ -36,9 +32,23 @@
         }
     };
     var restaurant =getCookie("restaurant");
+    //alert("get restau:" + restaurant);
     var night_club =getCookie("night_club");
+    //alert("get night:" + night_club);
     var bar =getCookie("bar");
+    //alert("get bar:" + bar);
+
+    var lat = getCookie("location_lat");
+    var lng = getCookie("location_lng");
+    alert(lat+ " " +lng);
+
     var url = encodeURI("getPlaceInfoXML.php?"+"restaurant="+restaurant+"&night_club="+night_club+"&bar="+bar);
+
+    //alert("lat:"+getLocation("lat"));
+    //alert("lng:"+getLocation("lng"));
+
+
+
     function getCookie(c_name)
     {
         if (document.cookie.length>0)
@@ -55,9 +65,10 @@
         return ""
     }
 
+
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-            center: new google.maps.LatLng(-33.863276, 151.207977),
+            center: new google.maps.LatLng(parseFloat(lat), parseFloat(lng)),
             zoom: 12
         });
         var infoWindow = new google.maps.InfoWindow;
@@ -118,8 +129,7 @@
 
     function doNothing() {}
 </script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBilpotFJdv0adi8t_41xylYqjrH_rdjqk&callback=initMap">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBilpotFJdv0adi8t_41xylYqjrH_rdjqk&callback=initMap">
 </script>
 </body>
 </html>

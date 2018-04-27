@@ -171,8 +171,6 @@ li a:hover:not(.active) {
     $("#p_city").html(ci);
     $("#p_drink").html(dr);
 
-    alert(dr)
-
     $.post("display.php",
         {
             number:num,
@@ -183,12 +181,20 @@ li a:hover:not(.active) {
         },
     function (data, status) {
         alert(status);
-        //alert(data);
+        alert(data);
         var json_obj = $.parseJSON(data);
         var results = json_obj.results;
         var restaurants = results.restaurant;
         var bars = results.bar;
         var night_clubs = results.night_club;
+        var location = results.location;
+        var lat = location.lat;
+        var lng = location.lng;
+
+        alert("lat:"+lat + " lng:" + lng);
+
+        setCookie("location_lat", lat);
+        setCookie("location_lng", lng);
 
         $("#load").hide();
         $("#main_data").show();
@@ -198,39 +204,44 @@ li a:hover:not(.active) {
             var address = n.address;
             var img_url = n.photo_url;
             createLi("restaurant", img_url, name, address);
-        })
+        });
+
+
         $.each(bars, function (i, n) {
             var name = n.name;
             var address = n.address;
             var img_url = n.photo_url;
             createLi("bar", img_url, name, address);
-        })
+        });
+
+
         $.each(night_clubs, function (i, n) {
             var name = n.name;
             var address = n.address;
             var img_url = n.photo_url;
             createLi("night_club", img_url, name, address);
-        })
+        });
+
 
         $("#main_data").find("li").each(function(){
             var ul = $(this).parent();
             var type = ul.attr("id");
             $(this).bind("click",function(){
                 myRadio(this.id, type);
-            })
+            });
             $(this).bind("mouseover",function(){
                 myOn(this.id);
-            })
+            });
             $(this).bind("mouseout",function(){
                 myOut(this.id);
-            })
+            });
         });
     });
 
     function changeNav(obj) {
         $("#nav").find("a").css({"background-color": "#333"});
         $(obj).children("a").css({"background-color": "#4CAF50"});
-    };
+    }
 
     /*createLi("restaurant", "../img/logo.png", "Antony Bon","55avenue");
     createLi("restaurant", "../img/logo.png", "r Bon","55avenue");
@@ -240,19 +251,21 @@ li a:hover:not(.active) {
     
     function detail() {
         var restaurant_name = valide("restaurant");
+        alert("set restau:"+restaurant_name);
         var bar_name = valide("bar");
+        alert("set bar:"+bar_name);
         var night_club_name = valide("night_club");
-        setCookie("restaurant", restaurant_name,100);
-        setCookie("bar", bar_name,100);
-        setCookie("night_club", night_club_name,100);
-        window.location.href="show_3places.html";
+        alert("set club:"+night_club_name);
+        setCookie("restaurant", restaurant_name, 100);
+        setCookie("night_club", night_club_name, 100);
+        setCookie("bar", bar_name, 100);
+        window.open("show_3places.html", "_blank");
     }
-    
 </script>
 
 
 
-<div id="footer">
+<div id="footer" onclick="detail()">
     DETAIL
 </div>
 

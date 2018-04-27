@@ -1,10 +1,10 @@
 function myRadio(sId, type) {
     //方法1:根据传来的ID进行添加,再为兄弟节点添加默认样式(可写作一行,也可分开写)
 
-    $("li[id='" + sId + "']").siblings("li").css({"border": "1px solid #E3E3E3", "opacity": "0.8"});
-    $("li[id='" + sId + "']").css({"border": "2px solid #FF6600", "opacity": "1"});
+    $("#"+type+" li[id='" + sId + "']").siblings("li").css({"border": "1px solid #E3E3E3", "opacity": "0.8"});
+    $("#"+type+" li[id='" + sId + "']").css({"border": "2px solid #FF6600", "opacity": "1"});
 
-    $("li[id='" + sId + "']").siblings("li").children("input").removeAttr("checked");
+    $("#"+type+" li[id='" + sId + "']").siblings("li").children("input").removeAttr("checked");
     $("input[name='" + type + "'][value='" + sId + "']").attr("checked", "checked");
     //$("input[name='"+type+"'][value='"+sId+"']").children("input").removeAttr("checked");
     //为点击按钮添加选中状态
@@ -29,7 +29,7 @@ function valide(name) {
     var radio = document.getElementsByName(name);
     for (var i = radio.length - 1; i >= 0; i--) {
         if (radio[i].checked) {
-            alert(radio[i].value);
+            return(radio[i].value);
         }
     }
 };
@@ -42,9 +42,13 @@ function createLi(type, img_url, name, address) {
     div.css({"margin-left": "15px", "float": "left"});
     div.append(l_name);
     div.append(l_address);
-    var img = $("<img src='" + img_url + "'>");
-    var input = $("<input type='radio' name='" + type + "' value='" + name + "'></input>");
-    var li = $("<li id='" + name + "'></li>");
+    //var img = $("<img src='" + img_url + "'>");
+    var img = $("<img src='" + "../img/logo.png" + "'>");
+    var input = $("<input type='radio' name='" + type + "' value=\"" + name + "\">");
+    //alert(name.replace(/'/,"&#39;"))
+    /*var input = $("<input type='radio' name = '"+type+"'></input>");
+    input.attr("value", );*/
+    var li = $("<li id=\"" + name + "\"></li>");
     li.append(input);
     li.append(img);
     li.append(div);

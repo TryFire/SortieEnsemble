@@ -8,6 +8,7 @@
 
 require("getLocation.php");
 require("constants.php");
+require ("saveResults.php");
 $number = $distance = $type_plat = $city = $drink = "";
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $number = $_POST["number"];
@@ -17,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $drink = $_POST["drink"];
 }
 /*$number = "5";
-$distance = "1000";
+$distance = "500";
 $type_plat = "italien";
 $city = "1ER+Paris";
 $drink = "vin";*/
@@ -83,14 +84,19 @@ $bar = decodeJsonToArray($bar_json, "bar"); //decode results to array
 $night_club_json = getDataByUrl($night_club_url); //get results(night_club) from google
 $night_club = decodeJsonToArray($night_club_json, "night_club"); //decode results to array
 
-echo json_encode(array("results"=>array("restaurant"=>$restaurant, "bar"=>$bar, "night_club"=>$night_club)));
+
+
+echo json_encode(array("results"=>array("restaurant"=>$restaurant, "bar"=>$bar, "night_club"=>$night_club, "location"=>$location)));
+save($restaurant);
+save($bar);
+save($night_club);
 
 function decodeJsonToArray($json, $type) {
     $result = json_decode($json,true);
 
     $results = $result['results'];
     //var_dump($results);
-    $array = null;
+    $array = array();
     /*echo count($results);
     echo "<br>";*/
     if (count($results) > 0) {
@@ -116,7 +122,8 @@ function decodeJsonToArray($json, $type) {
             }
             //echo "<a href='$photo_url'>look photo</a>>";
 
-            $a1 = array("name"=>$r_name, "address"=>$r_address, "photo_url"=>$photo_url);
+            $a1 = array("name"=>$r_name, "address"=>$r_address, "photo_url"=>$photo_url,
+                "lat"=>$r_lat, "lng"=>$r_lng, "place_id"=>$r_place_id, "type"=>$type);
             $array[$x] = $a1;
         }
     }
