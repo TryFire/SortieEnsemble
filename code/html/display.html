@@ -20,6 +20,18 @@ body{
     float:left;
     padding:5px;
     margin-top: 50px;
+    margin-right: 10px  ;
+}
+#choosed {
+    background-color:#eeeeee;
+    position: fixed;
+    right:0;
+    top: 50px;
+    width:25%;
+    float:right;
+    padding:5px;
+    margin-top: 5px;
+
 }
 .content {
     width:55%;
@@ -79,6 +91,21 @@ li input{
     background-color: #333;
     position: fixed;
     left: 40%;
+}
+
+#choosed a {
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    color: #111;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#choosed a:hover {
+    background-color: #111;
+    color: white;
+
 }
 
 #nav li {
@@ -152,8 +179,13 @@ li a:hover:not(.active) {
 </div>
 
 <div id="choosed" style="float:right;">
-    <p>zhege</p>
-    <p>nage</p>
+    <h3>Vous avez choisi : </h3>
+    <h5>RESTAURANT : </h5>
+    <a id="choosed_restaurant"> </a>
+    <h5>DISCOTHEQUE : </h5>
+    <a id="choosed_night_club"> </a>
+    <h5>BAR : </h5>
+    <a id="choosed_bar"> </a>
 </div>
 <script>
     $("#load").show();
@@ -180,8 +212,8 @@ li a:hover:not(.active) {
             drink:dr
         },
     function (data, status) {
-        alert(status);
-        alert(data);
+        //alert(status);
+        //alert(data);
         var json_obj = $.parseJSON(data);
         var results = json_obj.results;
         var restaurants = results.restaurant;
@@ -191,7 +223,7 @@ li a:hover:not(.active) {
         var lat = location.lat;
         var lng = location.lng;
 
-        alert("lat:"+lat + " lng:" + lng);
+        //alert("lat:"+lat + " lng:" + lng);
 
         setCookie("location_lat", lat);
         setCookie("location_lng", lng);
@@ -251,11 +283,11 @@ li a:hover:not(.active) {
     
     function detail() {
         var restaurant_name = valide("restaurant");
-        alert("set restau:"+restaurant_name);
+        //alert("set restau:"+restaurant_name);
         var bar_name = valide("bar");
-        alert("set bar:"+bar_name);
+        //alert("set bar:"+bar_name);
         var night_club_name = valide("night_club");
-        alert("set club:"+night_club_name);
+        //alert("set club:"+night_club_name);
         setCookie("restaurant", restaurant_name, 100);
         setCookie("night_club", night_club_name, 100);
         setCookie("bar", bar_name, 100);

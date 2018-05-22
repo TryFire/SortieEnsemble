@@ -2,7 +2,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="css/btn_style.css"/>
-
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/cookie.js"></script>
     <title>sortir ensemble</title>
     <style type="text/css">
         .head {
@@ -31,15 +32,83 @@
 <body>
 <h1 class="head">BIENVENUE !</h1>
 <img class="img" src="img/logo.png">
-<div style="text-align: center;margin-top: -100px;">
+<div style="text-align: center;margin-top: -100px; margin-bottom: 100px">
     <form method="get" action="html/options.php"> Vous voulez ajouter "cinema" avant le sortie? <br>
         <input name="cinema" type="radio" value="oui"> oui
         <input name="cinema" type="radio" value="non" checked> non
         <br>
-        <input class="btn" type="submit" value="Start" style="margin-top: 20px">
+        <input id="start" class="btn" type="submit" value="Start" style="margin-top: 20px">
     </form>
-    <p>clique sur "START" pour organiser ta soirée</p>
+    <p>Cliquez sur "START" pour organiser ta soirée</p>
+    <p>ou</p>
+    <p>Entrez votre email et cliquez sur "Chercher" pour chercher les triplets vous avez choisi</p>
+    <input id="e_mail" type="text" size="30" >
+    <button id="chercher" onclick="chercher()">Chercher</button>
 </div>
+
+<script>
+    function chercher() {
+        $("#chercher").text("en train de chercher...");
+        $("#chercher").attr('disabled', true);
+        $("#start").attr('disabled', true);
+        var email = $("#e_mail").attr("value");
+        if (validate_email(email, "error email")) {
+            $.post("html/findTriplets.php",
+                {
+                    email:email
+                },
+            function (data, status) {
+                var result = $.parseJSON(data);
+                var statu = result.status;
+                if (statu == "-1") {
+                    alert("il n'y a pas des triplets, vous pouvez choisir une");
+                    $("#chercher").text("chercher");
+                    $("#chercher").attr('disabled', false);
+                    $("#start").attr('disabled', false);
+                } else {
+                    var triplet = result.triplet;
+                    var city = triplet.city;
+                    var restaurant = triplet.restaurant;
+                    var night_club = triplet.night_club;
+                    var bar = triplet.bar;
+                    var location = triplet.location;
+                    var lat = location.lat;
+                    var lng = location.lng;
+
+                    //alert(city+restaurant+lat+lng);
+
+                    setCookie("restaurant", restaurant, 100);
+                    setCookie("night_club", night_club, 100);
+                    setCookie("bar", bar, 100);
+                    setCookie("city", city, 100);
+                    setCookie("lat", lat, 100);
+                    setCookie("lng", lng, 100);
+
+                    $("#chercher").text("chercher");
+                    $("#chercher").attr('disabled', false);
+                    $("#start").attr('disabled', false);
+
+                    window.open("html/show_3places.html", "_blank");
+                }
+            })
+        } else {
+            $("#e_mail").focus();
+        }
+    }
+
+    function validate_email(email, alerttxt) {
+            var apos = email.indexOf("@")
+            var dotpos = email.lastIndexOf(".")
+            if (apos < 1 || dotpos - apos < 2) {
+                alert(alerttxt);
+                return false
+            }
+            else {
+                return true
+            }
+
+    };
+</script>
 
 
 </body>

@@ -11,7 +11,9 @@ function myRadio(sId, type) {
 
     //获得选中的值,方便处理
     var chked = $("input[name='" + type + "']:checked").val();
-    alert(chked);
+    $("#choosed_"+type).html(chked);
+    $("#choosed_"+type).attr("href", "#"+chked);
+    //alert(chked);
 };
 
 function myOn(sId) {
@@ -33,6 +35,11 @@ function valide(name) {
         }
     }
 };
+
+function pointer(name) {
+    var pointer = "#"+name;
+    return pointer;
+}
 
 function createLi(type, img_url, name, address) {
     var l_name = $("<p class='name'>" + name + "</p>");

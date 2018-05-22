@@ -31,6 +31,7 @@ function getLocation($city_name)
     } else {
         return array("lat" => 0.0, "lng"=>0.0);
     }
+
 }
 
 ?>

@@ -163,9 +163,10 @@ if ($cinema == "oui") {
 
 <script>
     function display() {
-        alert("start");
+        //alert("start");
         setCookie("number", valide("number"), 100);
         setCookie("distance", valide("distance"), 100);
+        //alert(valide("city"));
         setCookie("city", valide("city"), 100);
         setCookie("drink", valide("drink"), 100);
         setCookie("type_plat", valide("type_plat"), 100);
