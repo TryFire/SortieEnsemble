@@ -170,7 +170,8 @@ if ($cinema == "oui") {
         setCookie("city", valide("city"), 100);
         setCookie("drink", valide("drink"), 100);
         setCookie("type_plat", valide("type_plat"), 100);
-        window.location.href="display.html";
+        //window.location.href="display.html";
+        window.open("display.html", "_blank");
     }
     function valide(name) {
         var radio = document.getElementsByName(name);
