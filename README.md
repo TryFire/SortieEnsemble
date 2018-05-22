@@ -10,5 +10,5 @@ C'est un projet de GLA.
 
 ## put the projet dans the directory of root of Apache2.o
 
-## input localhost in the Explorer such as google chrome
+## input localhost in the Explorer such as google chrome or excute the file of index.html in "SortieEnsemble/src/index.html"
 
