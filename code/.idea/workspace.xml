@@ -42,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show_3places.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="show_3places.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/html/show_3places.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2470">
-              <caret line="130" column="14" selection-start-line="130" selection-start-column="14" selection-end-line="130" selection-end-column="14" />
+            <state relative-caret-position="510">
+              <caret line="217" column="47" selection-start-line="217" selection-start-column="47" selection-end-line="217" selection-end-column="47" />
               <folding>
                 <element signature="n#style#0;n#div#3;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -72,7 +72,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="options.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="options.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/options.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
@@ -140,13 +140,13 @@
         <option value="$PROJECT_DIR$/html/email.php" />
         <option value="$PROJECT_DIR$/html/findTriplets.php" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/html/show_3places.html" />
         <option value="$PROJECT_DIR$/html/display.html" />
         <option value="$PROJECT_DIR$/js/display.js" />
         <option value="$PROJECT_DIR$/html/place_detail.html" />
         <option value="$PROJECT_DIR$/html/testmail.php" />
         <option value="$PROJECT_DIR$/html/test.php" />
         <option value="$PROJECT_DIR$/html/options.php" />
+        <option value="$PROJECT_DIR$/html/show_3places.html" />
       </list>
     </option>
   </component>
@@ -277,15 +277,16 @@
       <workItem from="1526891701041" duration="5693000" />
       <workItem from="1526982319680" duration="24818000" />
       <workItem from="1527019779563" duration="1246000" />
-      <workItem from="1527023326716" duration="743000" />
+      <workItem from="1527023326716" duration="1317000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="187898000" />
+    <option name="totallyTimeSpent" value="188472000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="100" y="16" width="1355" height="768" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="7" />
@@ -591,16 +592,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/show_3places.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2470">
-          <caret line="130" column="14" selection-start-line="130" selection-start-column="14" selection-end-line="130" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#div#3;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/place_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
@@ -657,6 +648,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="172" column="46" lean-forward="true" selection-start-line="172" selection-start-column="46" selection-end-line="172" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/show_3places.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="217" column="47" selection-start-line="217" selection-start-column="47" selection-end-line="217" selection-end-column="47" />
+          <folding>
+            <element signature="n#style#0;n#div#3;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
